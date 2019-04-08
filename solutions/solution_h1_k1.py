@@ -3,10 +3,16 @@ import sys
 H = 0   # horizontal placement of a tile
 V = 1   # vertical placement of a tile
 
-def is_tilable(m, n):
-   return 1 - (m%2)*(n%2)
+def is_tilable(m, n, h, k):
+    assert h <= k
+    if (m < k) or (n < h):
+        return 0
 
-def compose_tiling(m, n, place_tile):
+    if (m*n)%(h*k):
+        return 0
+    return 1
+
+def compose_tiling(m, n, h, k, place_tile):
    if n%2 == 0:
        for i in range(1,m+1): #for every raw (deal each raw separately)
            for j in range(1,n,2):

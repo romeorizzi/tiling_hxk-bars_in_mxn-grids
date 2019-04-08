@@ -129,8 +129,10 @@ def test_case(m,n,h,k):
                 
 def run_all_test_cases():
     for m in range(1,10):
-        for n in range(h,8):
-            test_case(m,n,h,k)
+        for h in range(3,5):
+            for n in range(h,8):
+                for k in range(h,h+3):
+                    test_case(m,n,h,k)
     test_case(99,99,3,5)        
     test_case(100,100,3,3)        
     test_case(99999,99999,2,2)        
